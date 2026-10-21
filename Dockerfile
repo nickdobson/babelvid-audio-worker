@@ -9,8 +9,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     UV_COMPILE_BYTECODE=1 \
     UV_PYTHON_DOWNLOADS=never
 
+# build-essential/python3-dev: diffq (pulled in by audio-separator) has no py3.12 wheel and builds from source.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        python3 python3-venv ffmpeg libsndfile1 ca-certificates \
+        python3 python3-venv python3-dev build-essential ffmpeg libsndfile1 ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=ghcr.io/astral-sh/uv:0.8.17 /uv /usr/local/bin/
