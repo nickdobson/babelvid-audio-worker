@@ -1,0 +1,7 @@
+runpod>=1.7,<2
+audio-separator[gpu]>=0.30
+audioread
+funasr>=1.2
+huggingface_hub
+numpy
+soundfile
